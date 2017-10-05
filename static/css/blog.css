@@ -1,0 +1,11 @@
+.jimmy-blogs {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+.jimmy-blog-cell {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    outline: solid 1px lightblue;
+}

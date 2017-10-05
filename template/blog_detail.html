@@ -1,0 +1,72 @@
+<script>
+</script>
+<body>
+    <h1>你好 jimmy饭</h1>
+    <img src=images/doge.gif>
+    <div>
+        <h1>博客详情</h1>
+    </div>
+    <script>
+        var ajax = function(request) {
+            var r = new XMLHttpRequest()
+            r.open(request.method, request.url, true)
+            if (request.contentType !== undefined) {
+                r.setRequestHeader('Content-Type', request.contentType)
+            }
+            r.onreadystatechange = function(event) {
+                if(r.readyState === 4) {
+                    request.callback(r.response)
+                }
+            }
+            if (request.method === 'GET') {
+                r.send()
+            } else {
+                r.send(request.data)
+            }
+        }
+
+        var blogAll = function() {
+            var request = {
+                method: 'GET',
+                url: '/api/blog/all',
+                contentType: 'application/json',
+                callback: function(response) {
+                    console.log('响应', response)
+                    var res = JSON.parse(response)
+                    if (res.success) {
+                        // window.location.href = '/'
+                    } else {
+                        // alert('登录失败')
+                    }
+                }
+            }
+            ajax(request)
+        }
+
+        var blogNew = function() {
+            var form = {
+                title: "测试标题",
+                author: "jimmy",
+                content: "测试内容",
+            }
+            var data = JSON.stringify(form)
+            var request = {
+                method: 'POST',
+                url: '/api/blog/add',
+                data: data,
+                contentType: 'application/json',
+                callback: function(response) {
+                    console.log('响应', response)
+                    var res = JSON.parse(response)
+                    if (res.success) {
+                        // window.location.href = '/'
+                    } else {
+                        // alert('登录失败')
+                    }
+                }
+            }
+            ajax(request)
+        }
+
+    </script>
+</body>

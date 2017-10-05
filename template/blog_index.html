@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>博客首页</title>
+        <link rel="stylesheet" href="css/blog.css">
+        <script src="https://limonte.github.io/sweetalert2/dist/sweetalert2.js"></script>
+        <link rel="stylesheet" href="https://limonte.github.io/sweetalert2/dist/sweetalert2.min.css">
+    </head>
+    <body>
+    <h1>你好 jimmy</h1>
+    <img src=images/doge.gif>
+    <div class="blog-new jimmy-auto-form">
+        <label>
+            博文标题
+            <input id='id-input-title' class="jimmy-auto-input"  data-key="title" type="text" value="">
+        </label>
+        <br>
+        <label>
+            博文作者
+            <input id='id-input-author' class="jimmy-auto-input"  data-key="author" type="text" value="">
+        </label>
+        <br>
+        <label>
+            博文内容
+            <textarea id='id-input-content' class="jimmy-auto-input"  data-key="content" type="text" value=""></textarea>
+        </label>
+        <br>
+        <label>
+            主人密码
+            <input id='id-input-mima' class="jimmy-auto-input" data-key="mima" type="text" value="">
+        </label>
+        <br>
+        <button id='id-button-submit' class="jimmy-auto-submit"
+                data-method="POST"
+                data-path="/api/blog/add"
+                data-response="blogAddBlock"
+        >发表新博文</button>
+    </div>
+    <div class="jimmy-blogs">
+    </div>
+    <script src="js/blogMain.js"></script>
+</body>
+</html>
